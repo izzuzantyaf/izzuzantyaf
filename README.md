@@ -1,7 +1,7 @@
 ### Hi there 👋
 I'm Izzu
 
-I enjoy build some useful stuff
+I love to build some useful stuff
 
 - 🌱 I’m currently learning React.js
 

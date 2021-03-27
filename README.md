@@ -3,7 +3,7 @@ I'm Izzu
 
 I love to build some useful stuff
 
-- 🌱 I’m currently learning React.js
+- 🌱 I’m currently learning React.js, Redux, and Python
 
 [![Izzu's github stats](https://github-readme-stats.vercel.app/api?username=izzuzantyaf&show_icons=true&theme=default)](https://github.com/anuraghazra/github-readme-stats)
 

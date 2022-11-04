@@ -1,7 +1,9 @@
-## Hi there!👋, I'm [Izzu](https://izzuzantyaf.space). Have a good day
+# Hi there!👋, I'm [Izzu](https://izzuzantyaf.space). Have a good day
 
 ### 3️⃣ Things on earth inside of me
-☕ **Coffe**, 👨‍💻 **Frontend Web Engineer**, 🧭 **Travelling**
+### ☕ **Coffe**, 👨‍💻 **Frontend Web Engineer**, 🧭 **Travelling**
+
+<br/>
 
 ### 🤌 Main course
 [![reactjs](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org)

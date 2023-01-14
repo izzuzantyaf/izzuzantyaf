@@ -46,12 +46,12 @@ export default function HomePage() {
         {/* Projects */}
         <div className="my-projects p-[16px] px-[20px]">
           <div className="container max-w-screen mx-auto">
-            <h2 className="title text-3xl md:text-4xl font-bold">Projects</h2>
-            <div className="projects-list mt-[24px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[16px]">
+            <h2 className="title text-3xl md:text-4xl font-bold">Portfolio</h2>
+            <div className="projects-list mt-[24px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[20px]">
               {projects.map((project, index) => (
                 <div
                   key={index}
-                  className="project-item bg-white p-[16px] rounded-[16px] shadow-lg"
+                  className="project-item bg-white p-[16px] rounded-[16px] shadow-md"
                 >
                   <Image
                     src={project.thumbnailSrc}
@@ -66,7 +66,7 @@ export default function HomePage() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block mt-[16px] rounded-[8px] border border-gray-400 border-solid py-[8px] px-[24px] font-medium"
+                    className="inline-block mt-[16px] rounded-[8px] border border-gray-400 border-solid py-[8px] px-[24px] font-bold"
                   >
                     Visit
                   </a>

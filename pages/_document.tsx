@@ -22,7 +22,7 @@ export default function Document() {
         <meta name="description" content="Izzu's personal website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <body className="text-gray-800">
+      <body className="text-gray-800 bg-gray-50 lg:text-lg">
         <Main />
         <NextScript />
       </body>

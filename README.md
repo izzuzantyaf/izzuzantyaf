@@ -1,6 +1,6 @@
 # Hi there!👋, I'm [Izzu](https://izzuzantyaf.space). Have a good day
 
-## 👨‍💻 **Fullstack Web Engineer**
+## 👨‍💻 **Fullstack Engineer**
 
 ![LeetCode Stats](https://leetcard.jacoblin.cool/izzuzantyaf?theme=light&font=Lato&ext=heatmap)
 

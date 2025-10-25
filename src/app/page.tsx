@@ -18,7 +18,7 @@ export default function Home() {
           I bring digital solutions from the complexity of technology into intuitive experiences on your screens.
         </p>
 
-        <p className="text-lg sm:text-xl text-gray-600 mb-4">Let's get connected</p>
+        <p className="text-lg sm:text-xl text-gray-600 mb-4">Let&apos;s get connected</p>
         <div className="flex gap-4">
           <a href="mailto:izzuzantyaf+work@gmail.com" className="p-2 rounded-xl bg-gray-200 transition-all duration-300 hover:scale-110">
             <MdAlternateEmail className="text-2xl sm:text-3xl" />

@@ -47,57 +47,27 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-onest), Arial, Helvetica, sans-serif;
 }
 
-/* Running text animation styles */
+/* Running text animation styles - CSS-only marquee */
 .running-text-container {
   width: 100%;
   max-width: 67%;
-  overflow: hidden;
+  height: 80px;
+  margin-top: 2rem;
   position: relative;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
-
-.running-text-container::before,
-.running-text-container::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 50px;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.running-text-container::before {
-  left: 0;
-  background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-}
-
-.running-text-container::after {
-  right: 0;
-  background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-}
-
-.running-text {
-  display: flex;
-  animation: scroll 20s linear infinite;
-  gap: 1.5rem;
-  align-items: center;
-  will-change: transform;
-  animation-fill-mode: both;
-  animation-timing-function: linear;
-  transform: translateZ(0);
-  backface-visibility: hidden;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
 }
 
 .tool-item {
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  white-space: nowrap;
-  padding: 1rem;
+  width: 60px;
+  height: 60px;
+  left: max(calc(60px * 12), 100%);
+  animation: scroll-left 30s linear infinite;
   transition: transform 0.3s ease;
-  min-width: fit-content;
 }
 
 .tool-item:hover {
@@ -116,19 +86,25 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 1;
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-33.333333333333336%);
+@keyframes scroll-left {
+  to {
+    left: -60px;
   }
 }
 
-/* Pause animation on hover */
-.running-text-container:hover .running-text {
-  animation-play-state: paused;
-}
+/* Individual animation delays for staggered effect */
+.tool-item-1 { animation-delay: calc(30s / 12 * (12 - 1) * -1); }
+.tool-item-2 { animation-delay: calc(30s / 12 * (12 - 2) * -1); }
+.tool-item-3 { animation-delay: calc(30s / 12 * (12 - 3) * -1); }
+.tool-item-4 { animation-delay: calc(30s / 12 * (12 - 4) * -1); }
+.tool-item-5 { animation-delay: calc(30s / 12 * (12 - 5) * -1); }
+.tool-item-6 { animation-delay: calc(30s / 12 * (12 - 6) * -1); }
+.tool-item-7 { animation-delay: calc(30s / 12 * (12 - 7) * -1); }
+.tool-item-8 { animation-delay: calc(30s / 12 * (12 - 8) * -1); }
+.tool-item-9 { animation-delay: calc(30s / 12 * (12 - 9) * -1); }
+.tool-item-10 { animation-delay: calc(30s / 12 * (12 - 10) * -1); }
+.tool-item-11 { animation-delay: calc(30s / 12 * (12 - 11) * -1); }
+.tool-item-12 { animation-delay: calc(30s / 12 * (12 - 12) * -1); }
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
@@ -140,22 +116,22 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 768px) {
   .running-text-container {
     max-width: 90%;
-  }
-  
-  .running-text {
-    gap: 1rem;
+    height: 60px;
   }
   
   .tool-item {
-    padding: 0.75rem;
+    width: 50px;
+    height: 50px;
+    left: max(calc(50px * 12), 100%);
   }
   
   .tool-icon {
     font-size: 2rem;
   }
   
-  .running-text-container::before,
-  .running-text-container::after {
-    width: 30px;
+  @keyframes scroll-left {
+    to {
+      left: -50px;
+    }
   }
 }

@@ -67,26 +67,11 @@ export default function Home() {
 
       <section className="tools-running-logo py-16 overflow-hidden flex justify-center">
         <div className="running-text-container">
-          <div className="running-text">
-            {/* First set */}
-            {TECH_TOOLS.map((tool, index) => (
-              <div key={`first-${tool.name}-${index}`} className="tool-item">
-                <tool.icon className="tool-icon" />
-              </div>
-            ))}
-            {/* Second set for seamless loop */}
-            {TECH_TOOLS.map((tool, index) => (
-              <div key={`second-${tool.name}-${index}`} className="tool-item">
-                <tool.icon className="tool-icon" />
-              </div>
-            ))}
-            {/* Third set for smoother animation */}
-            {TECH_TOOLS.map((tool, index) => (
-              <div key={`third-${tool.name}-${index}`} className="tool-item">
-                <tool.icon className="tool-icon" />
-              </div>
-            ))}
-          </div>
+          {TECH_TOOLS.map((tool, index) => (
+            <div key={`${tool.name}-${index}`} className={`tool-item tool-item-${index + 1}`}>
+              <tool.icon className="tool-icon" />
+            </div>
+          ))}
         </div>
       </section>
     </>

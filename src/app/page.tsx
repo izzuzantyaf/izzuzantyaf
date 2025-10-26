@@ -6,11 +6,11 @@ export default function Home() {
   return (
     <>
       <section className="hero h-dvh relative flex flex-col px-6 justify-center">
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight z-[1] mb-4">
+        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight z-1 mb-4">
           Hi there. <span className="font-extrabold">I&apos;m Izzu 👋</span>
         </h1>
 
-        <h2 className="text-3xl sm:text-4xl md:text-5xl z-[1] text-gray-600 mb-8">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl z-1 text-gray-600 mb-8">
           Software Engineer
         </h2>
 

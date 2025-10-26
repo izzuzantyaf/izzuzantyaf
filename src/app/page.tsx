@@ -2,7 +2,7 @@ import { MdAlternateEmail } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaReact, FaNodeJs, FaDocker, FaGitAlt } from "react-icons/fa";
-import { SiTypescript, SiNextdotjs, SiTailwindcss, SiPrisma, SiPostgresql, SiRedis, SiJest, SiCypress, SiFigma, SiVercel, SiSupabase, SiAntdesign, SiNestjs } from "react-icons/si";
+import { SiTypescript, SiNextdotjs, SiTailwindcss, SiPostgresql, SiJest, SiAntdesign, SiNestjs } from "react-icons/si";
 import { IconBaseProps } from "react-icons";
 import Image from "next/image";
 

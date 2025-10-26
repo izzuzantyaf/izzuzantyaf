@@ -46,3 +46,116 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-onest), Arial, Helvetica, sans-serif;
 }
+
+/* Running text animation styles */
+.running-text-container {
+  width: 100%;
+  max-width: 67%;
+  overflow: hidden;
+  position: relative;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.running-text-container::before,
+.running-text-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.running-text-container::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.running-text-container::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.running-text {
+  display: flex;
+  animation: scroll 20s linear infinite;
+  gap: 1.5rem;
+  align-items: center;
+  will-change: transform;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.tool-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  padding: 1rem;
+  transition: transform 0.3s ease;
+  min-width: fit-content;
+}
+
+.tool-item:hover {
+  transform: scale(1.1);
+}
+
+.tool-icon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.tool-item:hover .tool-icon {
+  opacity: 1;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-33.333333333333336%);
+  }
+}
+
+/* Pause animation on hover */
+.running-text-container:hover .running-text {
+  animation-play-state: paused;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .running-text-container {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .running-text-container {
+    max-width: 90%;
+  }
+  
+  .running-text {
+    gap: 1rem;
+  }
+  
+  .tool-item {
+    padding: 0.75rem;
+  }
+  
+  .tool-icon {
+    font-size: 2rem;
+  }
+  
+  .running-text-container::before,
+  .running-text-container::after {
+    width: 30px;
+  }
+}

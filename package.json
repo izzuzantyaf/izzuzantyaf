@@ -9,13 +9,12 @@
     "dev": "vite dev --port 3000",
     "generate-routes": "tsr generate",
     "build": "vite build",
-    "preview": "vite preview",
+    "start": "vite preview",
     "test": "vitest run",
     "format": "biome format",
     "lint": "biome lint",
     "check": "biome check",
-    "deploy": "bun run build && wrangler deploy",
-    "start": "bun run ./.output/server/index.mjs"
+    "deploy": "bun run build && wrangler deploy"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.26.0",

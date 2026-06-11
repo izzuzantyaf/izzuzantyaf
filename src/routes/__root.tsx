@@ -1,3 +1,5 @@
+import notoSans from '@fontsource-variable/noto-sans/index.css?url'
+import onest from '@fontsource-variable/onest/index.css?url'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 import type { QueryClient } from '@tanstack/react-query'
 import {
@@ -36,11 +38,13 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         rel: 'stylesheet',
         href: appCss,
       },
-      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: '' },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Onest:wght@100..900&display=swap',
+        href: notoSans,
+      },
+      {
+        rel: 'stylesheet',
+        href: onest,
       },
     ],
   }),

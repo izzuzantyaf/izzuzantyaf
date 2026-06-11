@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-noto-sans: 'Noto Sans', sans-serif;
-  --font-onest: 'Onest', sans-serif;
+  --font-noto-sans: 'Noto Sans Variable', sans-serif;
+  --font-onest: 'Onest Variable', sans-serif;
 }
 
 * {

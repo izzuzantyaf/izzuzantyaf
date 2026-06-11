@@ -1,11 +1,8 @@
 @import "tailwindcss";
 
-@import '@fontsource-variable/noto-sans';
-@import '@fontsource-variable/onest';
-
 @theme inline {
-  --font-noto-sans: 'Noto Sans Variable', sans-serif;
-  --font-onest: 'Onest Variable', sans-serif;
+  --font-noto-sans: 'Noto Sans', sans-serif;
+  --font-onest: 'Onest', sans-serif;
 }
 
 * {
@@ -30,6 +27,8 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: var(--font-noto-sans), Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-optical-sizing: auto;
 }
 
 h1,

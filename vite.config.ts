@@ -13,7 +13,14 @@ const config = defineConfig({
     cloudflare({ viteEnvironment: { name: 'ssr' } }),
     tailwindcss(),
     tanstackStart(),
-    nitro(),
+    nitro({
+      preset: 'bun',
+      vercel: {
+        functions: {
+          runtime: 'bun1.x',
+        },
+      },
+    }),
     viteReact(),
   ],
 })

@@ -26,11 +26,21 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       {
         title: 'Izzu Z. Fawwas | AI-Native Software Engineer',
       },
+      {
+        name: 'description',
+        content: 'AI-Native Software Engineer',
+      },
     ],
     links: [
       {
         rel: 'stylesheet',
         href: appCss,
+      },
+      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: '' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Onest:wght@100..900&display=swap',
       },
     ],
   }),

@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@import '@fontsource-variable/noto-sans';
+@import '@fontsource-variable/onest';
+
+@theme inline {
+  --font-noto-sans: 'Noto Sans Variable', sans-serif;
+  --font-onest: 'Onest Variable', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-noto-sans), Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-onest), Arial, Helvetica, sans-serif;
+}

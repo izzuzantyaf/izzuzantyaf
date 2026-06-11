@@ -15,7 +15,7 @@
     "lint": "biome lint",
     "check": "biome check",
     "deploy": "pnpm run build && wrangler deploy",
-     "start": "node .output/server/index.mjs"
+    "start": "node .output/server/index.js"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.26.0",

@@ -15,7 +15,7 @@
     "lint": "biome lint",
     "check": "biome check",
     "deploy": "pnpm run build && wrangler deploy",
-    "start": "vite preview"
+    "start": "bun run ./.output/server/index.mjs"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.26.0",
@@ -29,6 +29,7 @@
     "@tanstack/react-start": "latest",
     "@tanstack/router-plugin": "^1.132.0",
     "lucide-react": "^0.545.0",
+    "nitro": "3.0.260610-beta",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "tailwindcss": "^4.1.18"

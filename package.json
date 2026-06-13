@@ -14,7 +14,9 @@
     "format": "biome format",
     "lint": "biome lint",
     "check": "biome check",
-    "deploy": "bun run build && wrangler deploy"
+    "deploy": "bun run build && wrangler deploy",
+    "prepare": "husky"
+
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.26.0",
@@ -27,6 +29,8 @@
     "@tanstack/react-router-ssr-query": "latest",
     "@tanstack/react-start": "latest",
     "@tanstack/router-plugin": "^1.132.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.7",
     "lucide-react": "^0.545.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
@@ -58,6 +62,11 @@
       "lightningcss",
       "sharp",
       "workerd"
+    ]
+  },
+   "lint-staged": {
+    "*.{js,ts,jsx,tsx,json,css}": [
+      "biome check --write"
     ]
   }
 }

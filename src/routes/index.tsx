@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { Share2 } from 'lucide-react'
 
-export const Route = createFileRoute('/')({ component: Home })
+export const Route = createFileRoute('/')({ component: HomePage })
 
 const SOCIAL_LINKS = [
   {
@@ -14,7 +15,7 @@ const SOCIAL_LINKS = [
   },
   {
     label: 'Email',
-    href: 'mailto:me@izzuzantyaf.space?subject=Hello%2C%20Izzu!&body=Hi%20Izzu%2C%0A%0A',
+    href: 'mailto:me@izzuzantyaf.space?subject=Hi%2C%20Let%27s%20Collaborate.&body=Hi%20Izzu%2C%20let%27s%20collaborate%20about...',
     external: false,
     bgColor: '#fce7f3',
     textColor: '#be185d',
@@ -32,52 +33,81 @@ const SOCIAL_LINKS = [
   },
 ]
 
-function Home() {
+function HomePage() {
   return (
-    <main>
-      <section className="hero h-dvh relative flex flex-col p-6 justify-center">
-        <h1 className="text-6xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight mb-4 text-center">
-          Hi there.{' '}
-          <span className="font-extrabold whitespace-nowrap">
-            I&apos;m Izzu 👋
+    <>
+      <div className="p-4 md:px-6 md:pt-6 pb-0 sticky top-0 z-10">
+        <header className="flex items-center gap-3 justify-between max-w-7xl mx-auto rounded-xl p-2 bg-white/30 dark:bg-white/10 backdrop-blur-xl shadow-[0_4px_24px_0_rgba(0,0,0,0.08)] ring-1 ring-inset ring-white/60 dark:ring-white/10">
+          <a
+            href="/"
+            className="font-extrabold text-2xl bg-gray-300/30 rounded-lg backdrop-blur-md select-none w-12 h-12 flex items-center justify-center"
+          >
+            IF
+          </a>
+          <button
+            type="button"
+            onClick={() =>
+              navigator.share({
+                title: document.title,
+                url: window.location.origin,
+              })
+            }
+            className="border rounded-lg backdrop-blur-md w-12 h-12 flex items-center justify-center cursor-pointer"
+            aria-label="Share"
+            title="Share"
+          >
+            <Share2 size={18} />
+          </button>
+        </header>
+      </div>
+
+      <main>
+        <section className="flex flex-col p-6 mt-9 sm:mt-20 lg:mt-28 justify-center max-w-7xl mx-auto md:text-center">
+          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-extralight mb-4">
+            Hi there.{' '}
+            <span className="font-extrabold whitespace-nowrap">
+              I&apos;m Izzu 👋
+            </span>
+          </h1>
+
+          <span className="text-3xl sm:text-4xl lg:text-5xl text-gray-600 mb-12">
+            AI-Native Software Engineer
           </span>
-        </h1>
 
-        <h2 className="text-3xl sm:text-4xl md:text-5xl text-gray-600 mb-12 text-center">
-          AI-Native Software Engineer
-        </h2>
+          <span className="text-lg sm:text-2xl text-gray-600 max-w-[60ch] mx-auto">
+            I bring digital solutions from the complexity of technology into
+            intuitive experiences on your screens.
+          </span>
 
-        <p className="text-lg sm:text-2xl text-gray-600 max-w-[60ch] self-center text-center">
-          I bring digital solutions from the complexity of technology into
-          intuitive experiences on your screens.
-        </p>
-
-        <ul className="flex flex-wrap gap-3 justify-center mt-10 list-none p-0 m-0">
-          {SOCIAL_LINKS.map((link) => (
-            <li key={link.label}>
-              <a
-                href={link.href}
-                {...(link.external
-                  ? { target: '_blank', rel: 'noopener noreferrer' }
-                  : {})}
-                className="flex items-center gap-2 px-5 py-2.5 rounded-full text-base font-medium transition-opacity hover:opacity-80"
-                style={{ backgroundColor: link.bgColor, color: link.textColor }}
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
+          <ul className="flex flex-wrap gap-3 mt-12 list-none p-0 m-0 md:justify-center">
+            {SOCIAL_LINKS.map((link) => (
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  {...(link.external
+                    ? { target: '_blank', rel: 'noopener noreferrer' }
+                    : {})}
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-full text-base font-medium"
+                  style={{
+                    border: '1.5px solid',
+                  }}
                 >
-                  <path d={link.iconPath} />
-                </svg>
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </section>
-    </main>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d={link.iconPath} />
+                  </svg>
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </main>
+    </>
   )
 }

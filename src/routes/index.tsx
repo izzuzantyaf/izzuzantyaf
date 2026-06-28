@@ -181,16 +181,16 @@ function Footer() {
           <div className="font-extrabold text-sm bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-sm select-none w-8 h-8 flex items-center justify-center">
             IF
           </div>
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <span className="text-sm text-gray-500">
             Made by{' '}
             <span className="font-semibold text-gray-900 dark:text-white">
               Izzu Z. Fawwas
             </span>
-          </p>
+          </span>
         </div>
-        <p className="text-xs text-gray-400 dark:text-gray-500">
+        <span className="text-sm text-gray-500">
           &copy; {new Date().getFullYear()} izzuzantyaf. All rights reserved.
-        </p>
+        </span>
       </div>
     </footer>
   )

@@ -172,6 +172,29 @@ function ProfessionalExperiences() {
   )
 }
 
+function Footer() {
+  return (
+    <footer className="border-t border-gray-100 dark:border-gray-900/50 mt-20 sm:mt-32 pb-16 pt-10 px-6">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="flex items-center gap-3">
+          <div className="font-extrabold text-sm bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-sm select-none w-8 h-8 flex items-center justify-center">
+            IF
+          </div>
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            Made by{' '}
+            <span className="font-semibold text-gray-900 dark:text-white">
+              Izzu Z. Fawwas
+            </span>
+          </p>
+        </div>
+        <p className="text-xs text-gray-400 dark:text-gray-500">
+          &copy; {new Date().getFullYear()} izzuzantyaf. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  )
+}
+
 function HomePage() {
   return (
     <>
@@ -248,6 +271,7 @@ function HomePage() {
         </section>
 
         <ProfessionalExperiences />
+        <Footer />
       </main>
     </>
   )

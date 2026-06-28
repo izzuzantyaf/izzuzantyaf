@@ -239,7 +239,7 @@ function HomePage() {
   return (
     <>
       <div className="p-4 md:px-6 md:pt-6 pb-0 sticky top-0 z-10">
-        <header className="flex items-center gap-3 justify-between max-w-7xl mx-auto rounded-xl p-2 bg-white/30 dark:bg-white/5 backdrop-blur-xl shadow-[0_4px_24px_0_rgba(0,0,0,0.08)] ring-1 ring-inset ring-white/60 dark:ring-white/10">
+        <header className="flex items-center gap-3 justify-between max-w-5xl mx-auto rounded-xl p-2 bg-white/30 dark:bg-white/5 backdrop-blur-xl shadow-[0_4px_24px_0_rgba(0,0,0,0.08)] ring-1 ring-inset ring-white/60 dark:ring-white/10">
           <a
             href="/"
             className="font-extrabold text-2xl bg-gray-300/30 dark:bg-gray-700/30 rounded-lg backdrop-blur-md select-none w-12 h-12 flex items-center justify-center"

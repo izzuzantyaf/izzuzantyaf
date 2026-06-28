@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { ArrowUpRight, Share2 } from 'lucide-react'
+import { ArrowUpRight, Monitor, Moon, Share2, Sun } from 'lucide-react'
+import { useTheme } from '../features/common/theme'
 
 export const Route = createFileRoute('/')({ component: HomePage })
 
@@ -195,31 +196,73 @@ function Footer() {
   )
 }
 
+function ThemeToggle() {
+  const { theme, setTheme } = useTheme()
+
+  function cycleTheme() {
+    if (theme === 'system') {
+      setTheme('light')
+    } else if (theme === 'light') {
+      setTheme('dark')
+    } else {
+      setTheme('system')
+    }
+  }
+
+  const tooltipText =
+    theme === 'system'
+      ? 'Theme: System'
+      : theme === 'light'
+        ? 'Theme: Light'
+        : 'Theme: Dark'
+
+  return (
+    <button
+      type="button"
+      onClick={cycleTheme}
+      className="border rounded-lg backdrop-blur-md w-12 h-12 flex items-center justify-center cursor-pointer hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
+      aria-label={tooltipText}
+      title={tooltipText}
+    >
+      {theme === 'light' ? (
+        <Sun size={18} />
+      ) : theme === 'dark' ? (
+        <Moon size={18} />
+      ) : (
+        <Monitor size={18} />
+      )}
+    </button>
+  )
+}
+
 function HomePage() {
   return (
     <>
       <div className="p-4 md:px-6 md:pt-6 pb-0 sticky top-0 z-10">
-        <header className="flex items-center gap-3 justify-between max-w-7xl mx-auto rounded-xl p-2 bg-white/30 dark:bg-white/10 backdrop-blur-xl shadow-[0_4px_24px_0_rgba(0,0,0,0.08)] ring-1 ring-inset ring-white/60 dark:ring-white/10">
+        <header className="flex items-center gap-3 justify-between max-w-7xl mx-auto rounded-xl p-2 bg-white/30 dark:bg-white/5 backdrop-blur-xl shadow-[0_4px_24px_0_rgba(0,0,0,0.08)] ring-1 ring-inset ring-white/60 dark:ring-white/10">
           <a
             href="/"
-            className="font-extrabold text-2xl bg-gray-300/30 rounded-lg backdrop-blur-md select-none w-12 h-12 flex items-center justify-center"
+            className="font-extrabold text-2xl bg-gray-300/30 dark:bg-gray-700/30 rounded-lg backdrop-blur-md select-none w-12 h-12 flex items-center justify-center"
           >
             IF
           </a>
-          <button
-            type="button"
-            onClick={() =>
-              navigator.share({
-                title: document.title,
-                url: window.location.origin,
-              })
-            }
-            className="border rounded-lg backdrop-blur-md w-12 h-12 flex items-center justify-center cursor-pointer"
-            aria-label="Share"
-            title="Share"
-          >
-            <Share2 size={18} />
-          </button>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <button
+              type="button"
+              onClick={() =>
+                navigator.share({
+                  title: document.title,
+                  url: window.location.origin,
+                })
+              }
+              className="border rounded-lg backdrop-blur-md w-12 h-12 flex items-center justify-center cursor-pointer hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
+              aria-label="Share"
+              title="Share"
+            >
+              <Share2 size={18} />
+            </button>
+          </div>
         </header>
       </div>
 
@@ -232,11 +275,11 @@ function HomePage() {
             </span>
           </h1>
 
-          <span className="text-3xl sm:text-4xl lg:text-5xl text-gray-600 mb-12">
+          <span className="text-3xl sm:text-4xl lg:text-5xl text-gray-600 dark:text-gray-400 mb-12">
             AI-Native Software Engineer
           </span>
 
-          <span className="text-lg sm:text-2xl text-gray-600 max-w-[60ch] mx-auto">
+          <span className="text-lg sm:text-2xl text-gray-600 dark:text-gray-400 max-w-[60ch] mx-auto">
             I bring digital solutions from the complexity of technology into
             intuitive experiences on your screens.
           </span>

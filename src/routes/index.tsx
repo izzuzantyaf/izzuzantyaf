@@ -107,7 +107,7 @@ function renderTextWithLinks(text: string) {
           href={part}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-primary hover:underline font-medium"
+          className="text-primary dark:text-blue-500 hover:underline font-medium"
         >
           {part}
         </a>
@@ -120,7 +120,7 @@ function renderTextWithLinks(text: string) {
 function ProfessionalExperiences() {
   return (
     <section className="p-6 max-w-7xl mx-auto mt-16">
-      <h2 className="text-3xl sm:text-4xl font-bold mb-10">
+      <h2 className="scroll-m-20 text-3xl sm:text-4xl font-semibold mb-10">
         Professional Experiences
       </h2>
       <div className="flex flex-col gap-12">
@@ -132,34 +132,32 @@ function ProfessionalExperiences() {
                 href={exp.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group text-xl font-bold hover:text-primary hover:underline transition-colors inline-flex items-center gap-1"
+                className="group text-xl font-semibold hover:text-primary hover:underline transition-colors inline-flex items-center gap-1"
               >
                 {exp.company}
                 <ArrowUpRight
                   size={16}
-                  className="text-gray-400 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200"
+                  className="text-muted-foreground/60 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200"
                 />
               </a>
-              <p className="text-sm text-gray-500 mt-0.5">
+              <p className="text-sm text-muted-foreground mt-0.5">
                 {exp.type} · {exp.duration}
               </p>
-              <p className="text-sm text-gray-500">{exp.location}</p>
+              <p className="text-sm text-muted-foreground">{exp.location}</p>
             </div>
 
             {/* Roles */}
             <div className="flex flex-col gap-8 border-l-2 border-gray-200 dark:border-gray-700 pl-6">
               {exp.roles.map((role) => (
                 <div key={role.title}>
-                  <p className="font-semibold text-lg">{role.title}</p>
-                  <p className="text-sm text-gray-500 mb-4">{role.period}</p>
-                  <ul className="flex flex-col gap-2 list-none p-0 m-0">
+                  <h3 className="text-lg font-semibold">{role.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    {role.period}
+                  </p>
+                  <ul className="flex flex-col gap-2 list-disc list-outside pl-5 py-0 m-0">
                     {role.highlights.map((item) => (
-                      <li
-                        key={item}
-                        className="flex gap-2 text-gray-700 dark:text-gray-300"
-                      >
-                        <span className="mt-1 shrink-0 text-gray-400">–</span>
-                        <span>{renderTextWithLinks(item)}</span>
+                      <li key={item} className="text-foreground">
+                        {renderTextWithLinks(item)}
                       </li>
                     ))}
                   </ul>
@@ -178,18 +176,18 @@ function Footer() {
     <footer className="border-t border-gray-100 dark:border-gray-900/50 mt-20 sm:mt-32 pb-16 pt-10 px-6">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-3">
-          <div className="font-extrabold text-sm bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-sm select-none w-8 h-8 flex items-center justify-center">
+          <div className="font-extrabold text-sm bg-muted text-muted-foreground rounded-sm select-none size-8 flex items-center justify-center">
             IF
           </div>
-          <span className="text-sm text-gray-500">
+          <span className="text-sm text-muted-foreground">
             Made by{' '}
-            <span className="font-semibold text-gray-900 dark:text-white">
+            <span className="font-semibold text-foreground">
               Izzu Z. Fawwas
             </span>
           </span>
         </div>
-        <span className="text-sm text-gray-500">
-          &copy; {new Date().getFullYear()} izzuzantyaf. All rights reserved.
+        <span className="text-sm text-muted-foreground">
+          &copy; {new Date().getFullYear()} All rights reserved.
         </span>
       </div>
     </footer>
@@ -220,7 +218,7 @@ function ThemeToggle() {
     <button
       type="button"
       onClick={cycleTheme}
-      className="border rounded-lg backdrop-blur-md w-12 h-12 flex items-center justify-center cursor-pointer hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
+      className="border rounded-lg backdrop-blur-md size-12 flex items-center justify-center cursor-pointer hover:bg-accent hover:text-accent-foreground dark:hover:bg-white/5 transition-colors"
       aria-label={tooltipText}
       title={tooltipText}
     >
@@ -242,7 +240,7 @@ function HomePage() {
         <header className="flex items-center gap-3 justify-between max-w-5xl mx-auto rounded-xl p-2 bg-white/30 dark:bg-white/5 backdrop-blur-xl shadow-[0_4px_24px_0_rgba(0,0,0,0.08)] ring-1 ring-inset ring-white/60 dark:ring-white/10">
           <a
             href="/"
-            className="font-extrabold text-2xl bg-gray-300/30 dark:bg-gray-700/30 rounded-lg backdrop-blur-md select-none w-12 h-12 flex items-center justify-center"
+            className="font-extrabold text-2xl bg-muted/30 rounded-lg backdrop-blur-md select-none size-12 flex items-center justify-center"
           >
             IF
           </a>
@@ -256,7 +254,7 @@ function HomePage() {
                   url: window.location.origin,
                 })
               }
-              className="border rounded-lg backdrop-blur-md w-12 h-12 flex items-center justify-center cursor-pointer hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
+              className="border rounded-lg backdrop-blur-md size-12 flex items-center justify-center cursor-pointer hover:bg-accent hover:text-accent-foreground dark:hover:bg-white/5 transition-colors"
               aria-label="Share"
               title="Share"
             >
@@ -268,21 +266,21 @@ function HomePage() {
 
       <main>
         <section className="flex flex-col p-6 mt-9 sm:mt-20 lg:mt-28 justify-center max-w-7xl mx-auto md:text-center">
-          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-extralight mb-4">
+          <h1 className="scroll-m-20 text-6xl sm:text-7xl lg:text-8xl font-extralight mb-4">
             Hi there.{' '}
             <span className="font-extrabold whitespace-nowrap">
               I&apos;m Izzu 👋
             </span>
           </h1>
 
-          <span className="text-3xl sm:text-4xl lg:text-5xl text-gray-600 dark:text-gray-400 mb-12">
+          <p className="text-3xl sm:text-4xl lg:text-5xl font-medium text-muted-foreground mb-12">
             AI-Native Software Engineer
-          </span>
+          </p>
 
-          <span className="text-lg sm:text-2xl text-gray-600 dark:text-gray-400 max-w-[60ch] mx-auto">
+          <p className="text-lg sm:text-2xl text-muted-foreground max-w-[60ch] mx-auto leading-relaxed">
             I bring digital solutions from the complexity of technology into
             intuitive experiences on your screens.
-          </span>
+          </p>
 
           <ul className="flex flex-wrap gap-3 mt-12 list-none p-0 m-0 md:justify-center">
             {SOCIAL_LINKS.map((link) => (

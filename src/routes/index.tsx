@@ -176,7 +176,7 @@ function Footer() {
     <footer className="border-t border-gray-100 dark:border-gray-900/50 mt-20 sm:mt-32 pb-16 pt-10 px-6">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-3">
-          <div className="font-extrabold text-sm bg-muted text-muted-foreground rounded-sm select-none size-8 flex items-center justify-center">
+          <div className="font-extrabold text-sm bg-muted rounded-sm select-none size-8 flex items-center justify-center">
             IF
           </div>
           <span className="text-sm text-muted-foreground">

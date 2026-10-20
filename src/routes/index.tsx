@@ -36,15 +36,35 @@ const SOCIAL_LINKS = [
 
 const PROFESSIONAL_EXPERIENCES = [
   {
+    company: 'GovTech Procurement by Telkom Indonesia',
+    type: 'Full-time',
+    duration: '2 mos',
+    location: 'Jakarta, Indonesia',
+    linkedin: 'https://www.linkedin.com/company/govtech-procurement/',
+    roles: [
+      {
+        title: 'Software Engineer',
+        period: 'Sep 2026 – Present · 2 mos',
+        highlights: [
+          "Works on INAPROC (https://katalog.inaproc.id), LKPP's national e-procurement platform, inside a Turborepo monorepo of 13 Next.js apps and 11 shared packages on a federated GraphQL layer with schema-driven codegen.",
+          'Built the "Pencarian Pintar" AI search experience on the buyer app: a session-persisted toggle in the header, shown only to logged-in buyers and gated by a feature flag, which commits the AI mode into the search URL so results never change while the toggle is being flipped.',
+          'Shipped the semantic search path, where buyer queries are matched by embedding similarity over product name, description, attributes, specifications and category instead of exact keywords — scoped to office supplies and electronics — with an explicit strategy precedence and a plain keyword fallback for guests, empty queries and flag-off.',
+          'Built the personalized "Rekomendasi Untuk Anda" row on the first results page: products ranked against the buyer\'s own region, with the recommended cards highlighted using the design\'s gradient outline.',
+          'Bootstrapped unit testing for the buyer checkout scope with Vitest and Testing Library — ~450 cases across 80 files plus a reusable checkout harness — and introduced a Playwright happy-flow recorder that captures reproducible video evidence for reviewers and QA.',
+        ],
+      },
+    ],
+  },
+  {
     company: 'Synapsis',
     type: 'Full-time',
-    duration: '2 yrs 4 mos',
+    duration: '2 yrs 6 mos',
     location: 'Yogyakarta, Indonesia',
     linkedin: 'https://www.linkedin.com/company/synapsis-id/',
     roles: [
       {
         title: 'Mid. Frontend Engineer',
-        period: 'Apr 2025 – Present · 1 yr 3 mos',
+        period: 'Aug 2025 – Aug 2026 · 1 yr 1 mo',
         highlights: [
           'Achieved an award as Best Employee of the year 2025.',
           'Fluently adopted AI tools such as Cursor/Antigravity/Claude agents, rules, and MCPs into my workflow that gives results on better edge cases handling, maintainable code, and 30%–50% faster output deliveries.',
@@ -58,7 +78,7 @@ const PROFESSIONAL_EXPERIENCES = [
       },
       {
         title: 'Frontend Engineer',
-        period: 'Mar 2024 – Mar 2025 · 1 yr 1 mo',
+        period: 'Mar 2024 – Aug 2025 · 1 yr 6 mos',
         highlights: [
           'On a daily basis I collaborated closely with System Analyst, Backend Engineer, UI/UX Designer, and Project Manager in agile software development life cycle.',
           'Developed Tyre Operating System (TOS) and Enterprise Asset Registry (EAR) web application user interfaces that 100% complied to its specification requirement and Figma design.',

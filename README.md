@@ -1,4 +1,4 @@
-# Hi there!👋, I'm [Izzu](https://izzuzantyaf.space). Have a good day
+# Hi there!👋, I'm [Izzu](https://izzuzantyaf.com). Have a good day
 
 ## 👨‍💻 **Fullstack Engineer**
 

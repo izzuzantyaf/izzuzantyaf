@@ -1,5 +1,9 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { ArrowUpRight, Monitor, Moon, Share2, Sun } from 'lucide-react'
+import {
+  type Screenshot,
+  ScreenshotGallery,
+} from '../features/common/components/screenshot-gallery'
 import { useTheme } from '../features/common/theme'
 
 export const Route = createFileRoute('/')({ component: HomePage })
@@ -16,7 +20,7 @@ const SOCIAL_LINKS = [
   },
   {
     label: 'Email',
-    href: 'mailto:me@izzuzantyaf.space?subject=Hi%2C%20Let%27s%20Collaborate.&body=Hi%20Izzu%2C%20let%27s%20collaborate%20about...',
+    href: 'mailto:me@izzuzantyaf.com?subject=Hi%2C%20Let%27s%20Collaborate.&body=Hi%20Izzu%2C%20let%27s%20collaborate%20about...',
     external: false,
     bgColor: '#fce7f3',
     textColor: '#be185d',
@@ -34,7 +38,29 @@ const SOCIAL_LINKS = [
   },
 ]
 
-const PROFESSIONAL_EXPERIENCES = [
+interface RoleGallery {
+  title: string
+  description: string
+  screenshots: Screenshot[]
+}
+
+interface ExperienceRole {
+  title: string
+  period: string
+  summary: string
+  galleries?: RoleGallery[]
+}
+
+interface Experience {
+  company: string
+  type: string
+  duration: string
+  location: string
+  linkedin: string
+  roles: ExperienceRole[]
+}
+
+const PROFESSIONAL_EXPERIENCES: Experience[] = [
   {
     company: 'GovTech Procurement by Telkom Indonesia',
     type: 'Full-time',
@@ -45,13 +71,8 @@ const PROFESSIONAL_EXPERIENCES = [
       {
         title: 'Software Engineer',
         period: 'Sep 2026 – Present · 2 mos',
-        highlights: [
-          "Works on INAPROC (https://katalog.inaproc.id), LKPP's national e-procurement platform, inside a Turborepo monorepo of 13 Next.js apps and 11 shared packages on a federated GraphQL layer with schema-driven codegen.",
-          'Built the "Pencarian Pintar" AI search experience on the buyer app: a session-persisted toggle in the header, shown only to logged-in buyers and gated by a feature flag, which commits the AI mode into the search URL so results never change while the toggle is being flipped.',
-          'Shipped the semantic search path, where buyer queries are matched by embedding similarity over product name, description, attributes, specifications and category instead of exact keywords — scoped to office supplies and electronics — with an explicit strategy precedence and a plain keyword fallback for guests, empty queries and flag-off.',
-          'Built the personalized "Rekomendasi Untuk Anda" row on the first results page: products ranked against the buyer\'s own region, with the recommended cards highlighted using the design\'s gradient outline.',
-          'Bootstrapped unit testing for the buyer checkout scope with Vitest and Testing Library — ~450 cases across 80 files plus a reusable checkout harness — and introduced a Playwright happy-flow recorder that captures reproducible video evidence for reviewers and QA.',
-        ],
+        summary:
+          'Works on INAPROC (https://katalog.inaproc.id), LKPP\'s national e-procurement platform, inside a Turborepo monorepo of 13 Next.js apps and 11 shared packages on a federated GraphQL layer with schema-driven codegen, and shipped PPK punishment validation at checkout, mandatory curation revision with its change history, and the "Pencarian Pintar" AI search, where queries are matched by embedding similarity and results are ranked against the buyer\'s own region. Bootstrapped unit testing for the buyer checkout scope with Vitest and Testing Library (~450 cases across 80 files) plus a Playwright happy-flow recorder, and keeps codegen, typecheck and lint clean one PR per ticket.',
       },
     ],
   },
@@ -65,27 +86,182 @@ const PROFESSIONAL_EXPERIENCES = [
       {
         title: 'Mid. Frontend Engineer',
         period: 'Aug 2025 – Aug 2026 · 1 yr 1 mo',
-        highlights: [
-          'Achieved an award as Best Employee of the year 2025.',
-          'Fluently adopted AI tools such as Cursor/Antigravity/Claude agents, rules, and MCPs into my workflow that gives results on better edge cases handling, maintainable code, and 30%–50% faster output deliveries.',
-          'Became person-in-charge in Frontend and Marketing team collaboration.',
-          "Improved and maintained the company's website (https://synapsis.id). Improved its LCP (Largest Contentful Paint) to under 2.5s, CLS (Cumulative Layout Shift) to under 0.1.",
-          'Created various Strapi plugins such as preview page before publish, advanced text editor, and data exporting into CSV or Excel to support the marketing team.',
-          'Implemented feature-oriented architecture on Synapsis website codebase that gives results on consistent and predictable pattern on the entire codebase.',
-          'Successfully migrated SWR to Tanstack Query on the entire TOS codebase without any major issue occurred.',
-          'Contributed to internal tools development. Initially gave recommendation about PDF generation method which utilise plain HTML, CSS combined with Gotenberg that gives results to be a standard in the Frontend team.',
+        summary:
+          'Named Best Employee of the year 2025 and became person-in-charge of the Frontend and Marketing collaboration, turning repeated ad-hoc content requests into a self-service workflow. Improved and maintained https://synapsis.id to LCP under 2.5s and CLS under 0.1, added multi-language routing, and built the Strapi plugins the marketing team relies on: live preview before publish, a Tiptap rich text editor, and CSV/Excel export. Migrated the entire TOS codebase from SWR to TanStack Query and moved the website to a feature-oriented architecture, working with AI agents, repository rules and MCPs for 30% to 50% faster deliveries without trading away code quality.',
+        galleries: [
+          {
+            title: 'Synapsis Website',
+            description:
+              'Company website (https://synapsis.id) with Strapi-driven campaigns, insight reports and lead capture forms.',
+            screenshots: [
+              {
+                src: '/images/experience/website/synapsis-home-hero.webp',
+                caption: 'Home hero with product preview',
+              },
+              {
+                src: '/images/experience/website/synapsis-use-cases.webp',
+                caption: 'Use case section grouping the platform by role',
+              },
+              {
+                src: '/images/experience/website/synapsis-integration.webp',
+                caption: 'Integration section with API and AI module cards',
+              },
+              {
+                src: '/images/experience/website/synapsis-nearon-features.webp',
+                caption: 'IoT dashboard feature carousel',
+              },
+              {
+                src: '/images/experience/website/synapsis-iot-solutions.webp',
+                caption: 'Industry tabs for IoT solutions and AI PPE detection',
+              },
+              {
+                src: '/images/experience/website/synapsis-insight-reports.webp',
+                caption: 'Insight report listing',
+              },
+              {
+                src: '/images/experience/website/synapsis-video-insight.webp',
+                caption: 'Video insight and media coverage cards',
+              },
+              {
+                src: '/images/experience/website/synapsis-mining-page.webp',
+                caption: 'Campaign landing page for mining',
+              },
+              {
+                src: '/images/experience/website/synapsis-report-landing.webp',
+                caption: 'Gated report landing page with download',
+              },
+              {
+                src: '/images/experience/website/synapsis-report-chapter.webp',
+                caption: 'Report chapter section',
+              },
+              {
+                src: '/images/experience/website/synapsis-report-testimonials.webp',
+                caption: 'Operations leader testimonials as social proof',
+              },
+              {
+                src: '/images/experience/website/synapsis-report-form.webp',
+                caption: 'Lead capture form for the report download',
+              },
+              {
+                src: '/images/experience/website/synapsis-smart-iot-dashboard.webp',
+                caption: 'Video modal for the smart IoT dashboard',
+              },
+              {
+                src: '/images/experience/website/synapsis-predictive-intelligence.webp',
+                caption:
+                  'Predictive intelligence section with the live dashboard',
+              },
+            ],
+          },
         ],
       },
       {
         title: 'Frontend Engineer',
         period: 'Mar 2024 – Aug 2025 · 1 yr 6 mos',
-        highlights: [
-          'On a daily basis I collaborated closely with System Analyst, Backend Engineer, UI/UX Designer, and Project Manager in agile software development life cycle.',
-          'Developed Tyre Operating System (TOS) and Enterprise Asset Registry (EAR) web application user interfaces that 100% complied to its specification requirement and Figma design.',
-          'Crafted complex UI components and interactions in TOS web app that consist of complex form structure, local state management combined with drag n drop interactions.',
-          'Successfully implemented a more efficient PDF generation method which significantly reduces render time by ~80% in TOS and EAR web app.',
-          'Implemented feature-oriented codebase architecture on both TOS and EAR that gives results on consistent and predictable pattern on the entire codebase.',
-          'Crafted reusable UI components on both TOS and EAR codebase that gives results on better maintenance and debugging.',
+        summary:
+          'Built the Tyre Operating System (TOS) and Enterprise Asset Registry (EAR) web apps to 100% of their specification requirement and Figma design, working daily in Scrum with system analysts, backend engineers, designers and PMs. Delivered the TOS modules end to end, from tyre change, pressure check, tread depth and daily activity to master data and the ECharts reporting suite, along with permission-aware menus, actions and cost fields. Cut PDF render time by 80%, built the reusable Select, SectionTitle, TableActionButton and status-switch modal components, and introduced the feature-oriented architecture both apps still follow.',
+        galleries: [
+          {
+            title: 'Tyre Operating System (TOS)',
+            description:
+              'Tyre management for mining fleets: condition monitoring, data entry, and reporting.',
+            screenshots: [
+              {
+                src: '/images/experience/tos/tos-dashboard.webp',
+                caption:
+                  'Dashboard with tyre consumption and scrap performance charts',
+              },
+              {
+                src: '/images/experience/tos/tos-daily-activity.webp',
+                caption: 'Daily activity board of pending and scheduled jobs',
+              },
+              {
+                src: '/images/experience/tos/tos-unit-model-setup.webp',
+                caption:
+                  'Unit model setup, mapping axle positions and load percentages',
+              },
+              {
+                src: '/images/experience/tos/tos-tyre-change.webp',
+                caption:
+                  'Tyre change form with a drag and drop axle position diagram',
+              },
+              {
+                src: '/images/experience/tos/tos-tyre-change-configuration.webp',
+                caption: 'Tyre change configuration table with serial numbers',
+              },
+              {
+                src: '/images/experience/tos/tos-pressure-check.webp',
+                caption:
+                  'Pressure check form flagging under and over pressure tyres',
+              },
+              {
+                src: '/images/experience/tos/tos-pressure-recommendation.webp',
+                caption:
+                  'Pressure recommendation matrix per load and inflation range',
+              },
+              {
+                src: '/images/experience/tos/tos-tread-depth-check.webp',
+                caption:
+                  'Tread depth check list with readings per tyre position',
+              },
+              {
+                src: '/images/experience/tos/tos-tyre-damage-report.webp',
+                caption:
+                  'Tyre damage report with drag and drop photo evidence uploads',
+              },
+              {
+                src: '/images/experience/tos/tos-tyre-card.webp',
+                caption:
+                  'Tyre card report preview with unit and position filters',
+              },
+              {
+                src: '/images/experience/tos/tos-tyre-performance-report.webp',
+                caption: 'Generated tyre performance report preview',
+              },
+              {
+                src: '/images/experience/tos/tos-inventory-report.webp',
+                caption: 'Tyre inventory report ready to export',
+              },
+              {
+                src: '/images/experience/tos/tos-budget-forecasting.webp',
+                caption: 'Versioned budget forecasting list',
+              },
+            ],
+          },
+          {
+            title: 'Enterprise Asset Registry (EAR)',
+            description:
+              'Asset registry for incoming, in use, transferred, and disposed company assets.',
+            screenshots: [
+              {
+                src: '/images/experience/ear/ear-incoming-asset.webp',
+                caption:
+                  'Incoming asset form with supporting document and handover fields',
+              },
+              {
+                src: '/images/experience/ear/ear-asset-list.webp',
+                caption:
+                  'Minor and major asset list with search and pagination',
+              },
+              {
+                src: '/images/experience/ear/ear-table-settings.webp',
+                caption: 'Table settings for choosing which columns to show',
+              },
+              {
+                src: '/images/experience/ear/ear-asset-detail.webp',
+                caption:
+                  'Registered asset detail with general information and QR preview',
+              },
+              {
+                src: '/images/experience/ear/ear-asset-movement-history.webp',
+                caption: 'Asset movement history timeline',
+              },
+              {
+                src: '/images/experience/ear/ear-asset-card.webp',
+                caption: 'Asset card PDF with QR code',
+              },
+            ],
+          },
         ],
       },
     ],
@@ -100,15 +276,8 @@ const PROFESSIONAL_EXPERIENCES = [
       {
         title: 'Fullstack Engineer',
         period: 'Jan 2023 – Jan 2024 · 1 yr 1 mo',
-        highlights: [
-          'Developed Widya Wicara MediaMaker, a Canva-like design maker web app that specialized to generate videos with AI-generated news anchor (https://mediamaker.widyawicara.com).',
-          'Developed Widya Wicara Notulensi, a web app to automate meeting note taking using AI (https://notulensi.widyawicara.com).',
-          'On a daily basis I worked closely with the VP of Tech and other software engineers.',
-          'I had responsibility to develop, maintain, and ensure the platform works fine.',
-          'Developed the backend using NestJS, integrated with the existing and external services, applied Clean Architecture resulting a modular, performant, and well functioned backend app.',
-          'Developed the frontend using Next.js, structured the repository folders by applying Clean Architecture combined with Atomic Design resulting a modular, performant, and well functioned frontend app.',
-          'Arranged and mentored interns to work together building the products so that resulted in more outcomes in the development process.',
-        ],
+        summary:
+          'Built Widya Wicara MediaMaker, a Canva-like web app that generates videos with an AI-generated news anchor (https://mediamaker.widyawicara.com), and Widya Wicara Notulensi, which automates meeting note taking (https://notulensi.widyawicara.com). Developed the NestJS backend and Next.js frontend with Clean Architecture and Atomic Design, integrated existing and external services, and mentored interns while working directly with the VP of Tech.',
       },
     ],
   },
@@ -174,13 +343,17 @@ function ProfessionalExperiences() {
                   <p className="text-sm text-muted-foreground mb-4">
                     {role.period}
                   </p>
-                  <ul className="flex flex-col gap-2 list-disc list-outside pl-5 py-0 m-0">
-                    {role.highlights.map((item) => (
-                      <li key={item} className="text-foreground">
-                        {renderTextWithLinks(item)}
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="text-foreground leading-relaxed">
+                    {renderTextWithLinks(role.summary)}
+                  </p>
+
+                  {role.galleries ? (
+                    <div className="flex flex-col gap-8 mt-6">
+                      {role.galleries.map((gallery) => (
+                        <ScreenshotGallery key={gallery.title} {...gallery} />
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
               ))}
             </div>

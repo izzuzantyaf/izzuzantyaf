@@ -294,7 +294,7 @@ function HomePage() {
           </h1>
 
           <p className="text-3xl sm:text-4xl lg:text-5xl font-medium text-muted-foreground mb-12">
-            AI-Native Software Engineer
+            Software Engineer
           </p>
 
           <p className="text-lg sm:text-2xl text-muted-foreground max-w-[60ch] mx-auto leading-relaxed">

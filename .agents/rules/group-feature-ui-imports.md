@@ -8,10 +8,10 @@ trigger: always_on
 
 - **Use direct subpath imports** when importing from a feature:
   - `import { Button } from "@/features/common/components/ui/button"`
-  - `import { useAuth } from "@/features/auth/toolkits"`
+  - `import { useAuth } from "@/features/auth/toolkits/use-auth"`
   - `import { loginMutationOptions } from "@/features/auth/services"`
 
-- **Do not** import from a feature root barrel like `@/features/[feature-name]`.
+- **Do not** import from a feature root barrel like `@/features/[feature-name]`, or from a subpath barrel like `@/features/auth/toolkits` (see `.agents/rules/no-barrel-exports.md`).
 
 ```ts
 // ✅ Preferred

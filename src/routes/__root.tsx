@@ -27,11 +27,11 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'Izzu Z. Fawwas | AI-Native Software Engineer',
+        title: 'Izzu Z. Fawwas - Software Engineer',
       },
       {
         name: 'description',
-        content: 'AI-Native Software Engineer',
+        content: 'Software Engineer',
       },
     ],
     links: [

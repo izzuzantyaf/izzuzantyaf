@@ -322,7 +322,7 @@ const PROFESSIONAL_EXPERIENCES: Experience[] = [
         period: 'Jan 2023 – Jan 2024',
         stack: ['NestJS', 'Next.js', 'Clean Architecture', 'Atomic Design'],
         summary:
-          'Built Widya Wicara MediaMaker, a Canva-like web app that generates videos with an AI-generated news anchor (https://mediamaker.widyawicara.com), and Widya Wicara Notulensi, which automates meeting note taking (https://notulensi.widyawicara.com). Developed the NestJS backend and Next.js frontend with Clean Architecture and Atomic Design, integrated existing and external services, and mentored interns while working directly with the VP of Tech.',
+          'Built Widya Wicara MediaMaker, a Canva-like web app that generates videos with an AI-generated news anchor (https://mediamaker.widyawicara.com), and Widya Wicara Notulensi, which automates meeting note taking (https://notulensi.id). Developed the NestJS backend and Next.js frontend with Clean Architecture and Atomic Design, integrated existing and external services, and mentored interns while working directly with the VP of Tech.',
       },
     ],
   },

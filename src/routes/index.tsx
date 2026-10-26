@@ -9,8 +9,8 @@ import { useTheme } from '../features/common/theme'
 
 const HERO_SHOTS = [
   {
-    src: '/images/experience/website/synapsis-report-chapter.webp',
-    alt: 'Synapsis gated report page with an e-book download call to action',
+    src: '/images/experience/website/synapsis-home-hero-iot.webp',
+    alt: 'Synapsis website home hero promoting integrated IoT and AI',
     label: 'Synapsis Website',
     caption:
       'Marketing site on a feature-oriented architecture with Strapi-driven campaigns.',
@@ -137,13 +137,14 @@ const PROFESSIONAL_EXPERIENCES: Experience[] = [
               'Company website (https://synapsis.id) with Strapi-driven campaigns, insight reports and lead capture forms.',
             screenshots: [
               {
+                src: '/images/experience/website/synapsis-home-hero-iot.webp',
+                caption:
+                  'Home hero for the integrated IoT and AI platform, with language switcher',
+              },
+              {
                 src: '/images/experience/website/synapsis-report-chapter.webp',
                 caption:
                   'Gated report page with the e-book download call to action',
-              },
-              {
-                src: '/images/experience/website/synapsis-home-hero.webp',
-                caption: 'Home hero with product preview',
               },
               {
                 src: '/images/experience/website/synapsis-use-cases.webp',
@@ -583,8 +584,10 @@ function HomePage() {
             </p>
 
             <h1 className="scroll-m-20 text-5xl sm:text-6xl lg:text-7xl font-extralight leading-[1.05] tracking-tight mb-6">
-              Interfaces that hold up under{' '}
-              <span className="font-extrabold">real operations.</span>
+              Measure twice,{' '}
+              <span className="font-extrabold whitespace-nowrap">
+                ship once.
+              </span>
             </h1>
 
             <p className="text-lg sm:text-xl text-muted-foreground max-w-[52ch] leading-relaxed">

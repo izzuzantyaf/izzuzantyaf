@@ -2,12 +2,19 @@ import { createFileRoute } from '@tanstack/react-router'
 import { ArrowUpRight, Monitor, Moon, Share2, Sun } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import {
-  type Screenshot,
   ScreenshotGallery,
+  type ScreenshotSet,
 } from '../features/common/components/screenshot-gallery'
 import { useTheme } from '../features/common/theme'
 
 const HERO_SHOTS = [
+  {
+    src: '/images/experience/website/synapsis-report-chapter.webp',
+    alt: 'Synapsis gated report page with an e-book download call to action',
+    label: 'Synapsis Website',
+    caption:
+      'Marketing site on a feature-oriented architecture with Strapi-driven campaigns.',
+  },
   {
     src: '/images/experience/tos/tos-dashboard.webp',
     alt: 'Tyre Operating System dashboard with tyre consumption and scrap performance charts',
@@ -22,20 +29,13 @@ const HERO_SHOTS = [
     caption:
       'Asset lifecycle tracking for the same fleet - detail view with the movement history timeline.',
   },
-  {
-    src: '/images/experience/website/synapsis-home-hero.webp',
-    alt: 'Synapsis website home hero with product preview',
-    label: 'Synapsis Website',
-    caption:
-      'Marketing site on a feature-oriented architecture with Strapi-driven campaigns.',
-  },
 ]
 
 const PROOF_POINTS = [
-  { figure: '13', label: 'Next.js apps in one Turborepo' },
+  { figure: '4', label: 'years shipping software' },
+  { figure: '3', label: 'platforms shipped end to end' },
+  { figure: '2.5s', label: 'LCP on website pages' },
   { figure: '450', label: 'test cases bootstrapped' },
-  { figure: '80%', label: 'faster PDF rendering' },
-  { figure: '2', label: 'platforms shipped end to end' },
 ]
 
 export const Route = createFileRoute('/')({ component: HomePage })
@@ -70,17 +70,12 @@ const SOCIAL_LINKS = [
   },
 ]
 
-interface RoleGallery {
-  title: string
-  description: string
-  screenshots: Screenshot[]
-}
-
 interface ExperienceRole {
   title: string
   period: string
+  stack: string[]
   summary: string
-  galleries?: RoleGallery[]
+  galleries?: ScreenshotSet[]
 }
 
 interface Experience {
@@ -102,7 +97,15 @@ const PROFESSIONAL_EXPERIENCES: Experience[] = [
     roles: [
       {
         title: 'Software Engineer',
-        period: 'Sep 2026 – Present · 2 mos',
+        period: 'Sep 2026 – Present',
+        stack: [
+          'Next.js',
+          'Turborepo',
+          'GraphQL',
+          'Codegen',
+          'Vitest',
+          'Playwright',
+        ],
         summary:
           'Works on INAPROC (https://katalog.inaproc.id), LKPP\'s national e-procurement platform, inside a Turborepo monorepo of 13 Next.js apps and 11 shared packages on a federated GraphQL layer with schema-driven codegen, and shipped PPK punishment validation at checkout, mandatory curation revision with its change history, and the "Pencarian Pintar" AI search, where queries are matched by embedding similarity and results are ranked against the buyer\'s own region. Bootstrapped unit testing for the buyer checkout scope with Vitest and Testing Library (~450 cases across 80 files) plus a Playwright happy-flow recorder, and keeps codegen, typecheck and lint clean one PR per ticket.',
       },
@@ -117,7 +120,14 @@ const PROFESSIONAL_EXPERIENCES: Experience[] = [
     roles: [
       {
         title: 'Mid. Frontend Engineer',
-        period: 'Aug 2025 – Aug 2026 · 1 yr 1 mo',
+        period: 'Aug 2025 – Aug 2026',
+        stack: [
+          'Next.js',
+          'TanStack Query',
+          'Strapi',
+          'i18n',
+          'Core Web Vitals',
+        ],
         summary:
           'Named Best Employee of the year 2025 and became person-in-charge of the Frontend and Marketing collaboration, turning repeated ad-hoc content requests into a self-service workflow. Improved and maintained https://synapsis.id to LCP under 2.5s and CLS under 0.1, added multi-language routing, and built the Strapi plugins the marketing team relies on: live preview before publish, a Tiptap rich text editor, and CSV/Excel export. Migrated the entire TOS codebase from SWR to TanStack Query and moved the website to a feature-oriented architecture, working with AI agents, repository rules and MCPs for 30% to 50% faster deliveries without trading away code quality.',
         galleries: [
@@ -126,6 +136,11 @@ const PROFESSIONAL_EXPERIENCES: Experience[] = [
             description:
               'Company website (https://synapsis.id) with Strapi-driven campaigns, insight reports and lead capture forms.',
             screenshots: [
+              {
+                src: '/images/experience/website/synapsis-report-chapter.webp',
+                caption:
+                  'Gated report page with the e-book download call to action',
+              },
               {
                 src: '/images/experience/website/synapsis-home-hero.webp',
                 caption: 'Home hero with product preview',
@@ -163,10 +178,6 @@ const PROFESSIONAL_EXPERIENCES: Experience[] = [
                 caption: 'Gated report landing page with download',
               },
               {
-                src: '/images/experience/website/synapsis-report-chapter.webp',
-                caption: 'Report chapter section',
-              },
-              {
                 src: '/images/experience/website/synapsis-report-testimonials.webp',
                 caption: 'Operations leader testimonials as social proof',
               },
@@ -189,7 +200,8 @@ const PROFESSIONAL_EXPERIENCES: Experience[] = [
       },
       {
         title: 'Frontend Engineer',
-        period: 'Mar 2024 – Aug 2025 · 1 yr 6 mos',
+        period: 'Mar 2024 – Aug 2025',
+        stack: ['Next.js', 'TypeScript', 'ECharts', 'RBAC', 'Figma'],
         summary:
           'Built the Tyre Operating System (TOS) and Enterprise Asset Registry (EAR) web apps to 100% of their specification requirement and Figma design, working daily in Scrum with system analysts, backend engineers, designers and PMs. Delivered the TOS modules end to end, from tyre change, pressure check, tread depth and daily activity to master data and the ECharts reporting suite, along with permission-aware menus, actions and cost fields. Cut PDF render time by 80%, built the reusable Select, SectionTitle, TableActionButton and status-switch modal components, and introduced the feature-oriented architecture both apps still follow.',
         galleries: [
@@ -266,6 +278,10 @@ const PROFESSIONAL_EXPERIENCES: Experience[] = [
               'Asset registry for incoming, in use, transferred, and disposed company assets.',
             screenshots: [
               {
+                src: '/images/experience/ear/ear-asset-movement-history.webp',
+                caption: 'Asset movement history timeline',
+              },
+              {
                 src: '/images/experience/ear/ear-incoming-asset.webp',
                 caption:
                   'Incoming asset form with supporting document and handover fields',
@@ -283,10 +299,6 @@ const PROFESSIONAL_EXPERIENCES: Experience[] = [
                 src: '/images/experience/ear/ear-asset-detail.webp',
                 caption:
                   'Registered asset detail with general information and QR preview',
-              },
-              {
-                src: '/images/experience/ear/ear-asset-movement-history.webp',
-                caption: 'Asset movement history timeline',
               },
               {
                 src: '/images/experience/ear/ear-asset-card.webp',
@@ -307,7 +319,8 @@ const PROFESSIONAL_EXPERIENCES: Experience[] = [
     roles: [
       {
         title: 'Fullstack Engineer',
-        period: 'Jan 2023 – Jan 2024 · 1 yr 1 mo',
+        period: 'Jan 2023 – Jan 2024',
+        stack: ['NestJS', 'Next.js', 'Clean Architecture', 'Atomic Design'],
         summary:
           'Built Widya Wicara MediaMaker, a Canva-like web app that generates videos with an AI-generated news anchor (https://mediamaker.widyawicara.com), and Widya Wicara Notulensi, which automates meeting note taking (https://notulensi.widyawicara.com). Developed the NestJS backend and Next.js frontend with Clean Architecture and Atomic Design, integrated existing and external services, and mentored interns while working directly with the VP of Tech.',
       },
@@ -349,46 +362,58 @@ function ProfessionalExperiences() {
       </h2>
       <div className="flex flex-col gap-12">
         {PROFESSIONAL_EXPERIENCES.map((exp) => (
-          <div key={exp.company} className="flex flex-col gap-6">
-            {/* Company header */}
-            <div>
-              <a
-                href={exp.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group text-xl font-semibold hover:text-primary hover:underline transition-colors inline-flex items-center gap-1"
-              >
-                {exp.company}
-                <ArrowUpRight
-                  size={16}
-                  className="text-muted-foreground/60 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200"
-                />
-              </a>
-              <p className="text-sm text-muted-foreground mt-0.5">
-                {exp.type} · {exp.duration}
+          <div key={exp.company} className="flex flex-col gap-8">
+            <div className="grid md:grid-cols-[10rem_1fr] gap-x-8 gap-y-1">
+              <p className="text-sm text-muted-foreground tabular-nums">
+                {exp.duration}
               </p>
-              <p className="text-sm text-muted-foreground">{exp.location}</p>
+              <div>
+                <a
+                  href={exp.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group text-xl font-semibold hover:text-primary hover:underline transition-colors inline-flex items-center gap-1"
+                >
+                  {exp.company}
+                  <ArrowUpRight
+                    size={16}
+                    className="text-muted-foreground/60 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200"
+                  />
+                </a>
+                <p className="text-sm text-muted-foreground mt-0.5">
+                  {exp.type} · {exp.location}
+                </p>
+              </div>
             </div>
 
-            {/* Roles */}
-            <div className="flex flex-col gap-8 border-l-2 border-gray-200 dark:border-gray-700 pl-6">
+            <div className="flex flex-col gap-10">
               {exp.roles.map((role) => (
-                <div key={role.title}>
-                  <h3 className="text-lg font-semibold">{role.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">
+                <div
+                  key={role.title}
+                  className="grid md:grid-cols-[10rem_1fr] gap-x-8 gap-y-2"
+                >
+                  <p className="text-sm text-muted-foreground tabular-nums">
                     {role.period}
                   </p>
-                  <p className="text-foreground leading-relaxed">
-                    {renderTextWithLinks(role.summary)}
-                  </p>
-
-                  {role.galleries ? (
-                    <div className="flex flex-col gap-8 mt-6">
-                      {role.galleries.map((gallery) => (
-                        <ScreenshotGallery key={gallery.title} {...gallery} />
+                  <div className="min-w-0">
+                    <h3 className="text-lg font-semibold">{role.title}</h3>
+                    <ul className="flex flex-wrap gap-1.5 mt-2 list-none p-0 m-0">
+                      {role.stack.map((item) => (
+                        <li
+                          key={item}
+                          className="rounded-full border border-gray-200 dark:border-gray-800 px-2.5 py-0.5 text-xs text-muted-foreground"
+                        >
+                          {item}
+                        </li>
                       ))}
-                    </div>
-                  ) : null}
+                    </ul>
+                    <p className="text-foreground leading-relaxed mt-4">
+                      {renderTextWithLinks(role.summary)}
+                    </p>
+                    {role.galleries?.length ? (
+                      <ScreenshotGallery galleries={role.galleries} />
+                    ) : null}
+                  </div>
                 </div>
               ))}
             </div>

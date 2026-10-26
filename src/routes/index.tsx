@@ -1,10 +1,42 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { ArrowUpRight, Monitor, Moon, Share2, Sun } from 'lucide-react'
+import { useEffect, useState } from 'react'
 import {
   type Screenshot,
   ScreenshotGallery,
 } from '../features/common/components/screenshot-gallery'
 import { useTheme } from '../features/common/theme'
+
+const HERO_SHOTS = [
+  {
+    src: '/images/experience/tos/tos-dashboard.webp',
+    alt: 'Tyre Operating System dashboard with tyre consumption and scrap performance charts',
+    label: 'Tyre Operating System',
+    caption:
+      'Tyre management for mining fleets - condition monitoring, data entry and reporting.',
+  },
+  {
+    src: '/images/experience/ear/ear-asset-movement-history.webp',
+    alt: 'Enterprise Asset Registry asset detail with asset movement history timeline',
+    label: 'Enterprise Asset Registry',
+    caption:
+      'Asset lifecycle tracking for the same fleet - detail view with the movement history timeline.',
+  },
+  {
+    src: '/images/experience/website/synapsis-home-hero.webp',
+    alt: 'Synapsis website home hero with product preview',
+    label: 'Synapsis Website',
+    caption:
+      'Marketing site on a feature-oriented architecture with Strapi-driven campaigns.',
+  },
+]
+
+const PROOF_POINTS = [
+  { figure: '13', label: 'Next.js apps in one Turborepo' },
+  { figure: '450', label: 'test cases bootstrapped' },
+  { figure: '80%', label: 'faster PDF rendering' },
+  { figure: '2', label: 'platforms shipped end to end' },
+]
 
 export const Route = createFileRoute('/')({ component: HomePage })
 
@@ -309,7 +341,10 @@ function renderTextWithLinks(text: string) {
 function ProfessionalExperiences() {
   return (
     <section className="p-6 max-w-7xl mx-auto mt-16">
-      <h2 className="scroll-m-20 text-3xl sm:text-4xl font-semibold mb-10">
+      <h2
+        id="experience"
+        className="scroll-m-20 text-3xl sm:text-4xl font-semibold mb-10 scroll-mt-24"
+      >
         Professional Experiences
       </h2>
       <div className="flex flex-col gap-12">
@@ -426,6 +461,64 @@ function ThemeToggle() {
   )
 }
 
+function HeroShotStack() {
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    const timer = setInterval(() => {
+      setActiveIndex((index) => (index + 1) % HERO_SHOTS.length)
+    }, 5000)
+
+    return () => clearInterval(timer)
+  }, [])
+
+  const activeShot = HERO_SHOTS[activeIndex]
+
+  return (
+    <figure className="m-0 lg:pl-4">
+      <div className="relative aspect-[16/10] rounded-2xl overflow-hidden border bg-muted/30 shadow-2xl lg:rotate-1">
+        {HERO_SHOTS.map((shot, index) => (
+          <img
+            key={shot.src}
+            src={shot.src}
+            alt={index === activeIndex ? shot.alt : ''}
+            width={1600}
+            height={960}
+            loading={index === 0 ? 'eager' : 'lazy'}
+            className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 ${
+              index === activeIndex ? 'opacity-100' : 'opacity-0'
+            }`}
+          />
+        ))}
+      </div>
+      <figcaption className="flex items-start justify-between gap-4 mt-3 lg:pl-1">
+        <p className="text-sm text-muted-foreground">
+          <span className="font-medium text-foreground">
+            {activeShot.label}
+          </span>{' '}
+          - {activeShot.caption}
+        </p>
+        <div className="flex gap-1.5 shrink-0 pt-1.5">
+          {HERO_SHOTS.map((shot, index) => (
+            <button
+              key={shot.src}
+              type="button"
+              onClick={() => setActiveIndex(index)}
+              aria-label={`Show ${shot.label}`}
+              aria-current={index === activeIndex}
+              className={`size-2 rounded-full cursor-pointer transition-colors ${
+                index === activeIndex ? 'bg-foreground' : 'bg-foreground/25'
+              }`}
+            />
+          ))}
+        </div>
+      </figcaption>
+    </figure>
+  )
+}
+
 function HomePage() {
   return (
     <>
@@ -458,50 +551,81 @@ function HomePage() {
       </div>
 
       <main>
-        <section className="flex flex-col p-6 mt-9 sm:mt-20 lg:mt-28 justify-center max-w-7xl mx-auto md:text-center">
-          <h1 className="scroll-m-20 text-6xl sm:text-7xl lg:text-8xl font-extralight mb-4">
-            Hi there.{' '}
-            <span className="font-extrabold whitespace-nowrap">
-              I&apos;m Izzu 👋
-            </span>
-          </h1>
+        <section className="grid lg:grid-cols-[1.15fr_1fr] lg:items-center gap-12 p-6 mt-8 sm:mt-10 lg:mt-14 max-w-7xl mx-auto">
+          <div>
+            <p className="text-xs sm:text-sm font-medium tracking-[0.12em] sm:tracking-[0.2em] uppercase text-muted-foreground mb-5">
+              Izzu Z. Fawwas · Software Engineer
+            </p>
 
-          <p className="text-3xl sm:text-4xl lg:text-5xl font-medium text-muted-foreground mb-12">
-            Software Engineer
-          </p>
+            <h1 className="scroll-m-20 text-5xl sm:text-6xl lg:text-7xl font-extralight leading-[1.05] tracking-tight mb-6">
+              Interfaces that hold up under{' '}
+              <span className="font-extrabold">real operations.</span>
+            </h1>
 
-          <p className="text-lg sm:text-2xl text-muted-foreground max-w-[60ch] mx-auto leading-relaxed">
-            I bring digital solutions from the complexity of technology into
-            intuitive experiences on your screens.
-          </p>
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-[52ch] leading-relaxed">
+              I build and maintain the frontends behind mining fleets, national
+              procurement and asset registries - typed, tested, and shipped
+              without breaking the people who use them daily.
+            </p>
 
-          <ul className="flex flex-wrap gap-3 mt-12 list-none p-0 m-0 md:justify-center">
-            {SOCIAL_LINKS.map((link) => (
-              <li key={link.label}>
-                <a
-                  href={link.href}
-                  {...(link.external
-                    ? { target: '_blank', rel: 'noopener noreferrer' }
-                    : {})}
-                  className="flex items-center gap-2 px-5 py-2.5 rounded-full text-base font-medium"
-                  style={{
-                    border: '1.5px solid',
-                  }}
-                >
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    aria-hidden="true"
+            <dl className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+              {PROOF_POINTS.map((point) => (
+                <div key={point.label}>
+                  <dt className="text-3xl font-semibold tabular-nums">
+                    {point.figure}
+                  </dt>
+                  <dd className="text-sm text-muted-foreground leading-snug mt-1">
+                    {point.label}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+
+            <div className="flex flex-wrap items-center gap-3 mt-10">
+              <a
+                href="mailto:me@izzuzantyaf.com?subject=Hi%2C%20Let%27s%20Collaborate.&body=Hi%20Izzu%2C%20let%27s%20collaborate%20about..."
+                className="flex items-center gap-2 px-6 py-3 rounded-full bg-foreground text-background font-medium hover:opacity-90 transition-opacity"
+              >
+                Email me
+              </a>
+              <a
+                href="#experience"
+                className="flex items-center gap-2 px-6 py-3 rounded-full border font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+              >
+                See the work
+              </a>
+            </div>
+
+            <ul className="flex flex-wrap gap-3 mt-8 list-none p-0 m-0">
+              {SOCIAL_LINKS.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    {...(link.external
+                      ? { target: '_blank', rel: 'noopener noreferrer' }
+                      : {})}
+                    className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium"
+                    style={{
+                      border: '1.5px solid',
+                    }}
                   >
-                    <path d={link.iconPath} />
-                  </svg>
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path d={link.iconPath} />
+                    </svg>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <HeroShotStack />
         </section>
 
         <ProfessionalExperiences />

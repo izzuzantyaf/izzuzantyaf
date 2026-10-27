@@ -552,9 +552,11 @@ function HomePage() {
   return (
     <>
       <div className="p-4 md:px-6 md:pt-6 pb-0 sticky top-0 z-10">
+        {/* Dark mode tints black, not white: the hero screenshots behind the
+            bar are near-white UI, and a white wash turned the icons invisible. */}
         <header
           ref={glassRef}
-          className="liquid-glass flex items-center gap-3 justify-between max-w-5xl mx-auto rounded-xl p-2 bg-white/40 dark:bg-white/8 shadow-[0_4px_24px_0_rgba(0,0,0,0.08)]"
+          className="liquid-glass flex items-center gap-3 justify-between max-w-5xl mx-auto rounded-xl p-2 bg-white/55 dark:bg-black/50 shadow-[0_4px_24px_0_rgba(0,0,0,0.08)]"
         >
           <a
             href="/"

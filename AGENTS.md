@@ -21,6 +21,8 @@ TanStack Start app on Cloudflare Workers. **Before editing anything under `src/*
 
 ## Gotchas
 
+- Deploy is automated: push to `main` runs `.github/workflows/deploy.yml`. It only fires when build inputs change (`src/**`, `public/**`, `package.json`, `bun.lock`, `tsconfig.json`, `tsr.config.json`, `vite.config.ts`, `wrangler.jsonc`, the workflow file). Docs, `.agents/**` and `.pi/**` changes do not deploy.
+
 - `wrangler.jsonc` `main` is `@tanstack/react-start/server-entry`, a virtual module resolved by the Start plugin. Don't look for it on disk. `nodejs_compat` is required.
 - Read the matching Cloudflare skill in `.agents/skills/` before changing Workers config, bindings, or deploy setup.
 - `.pi/settings.json` pins per-repo agent tooling (ponytail); `.pi/npm/` gitignores itself.

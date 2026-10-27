@@ -155,3 +155,45 @@ h6 {
     @apply font-sans;
   }
 }
+
+/* Liquid glass surface. Unlayered on purpose: it must beat the Tailwind
+   utilities, and `backdrop-filter: url()` is swapped in by the
+   LiquidGlassFilter component on Chromium only. */
+.liquid-glass {
+  position: relative;
+  isolation: isolate;
+  /* Safari only un-prefixed this in 18.0, keep the prefix for 16 and 17. */
+  -webkit-backdrop-filter: blur(4px) saturate(180%) brightness(1.03);
+  backdrop-filter: blur(4px) saturate(180%) brightness(1.03);
+}
+
+/* Specular rim + sheen. Sits above the tint, below the content. */
+.liquid-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.45),
+    inset 0 1px 0 0 rgb(255 255 255 / 0.7),
+    inset 0 -1px 1px 0 rgb(255 255 255 / 0.15),
+    inset 0 0 12px -4px rgb(255 255 255 / 0.5);
+}
+
+.dark .liquid-glass::before {
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.12),
+    inset 0 1px 0 0 rgb(255 255 255 / 0.18),
+    inset 0 -1px 1px 0 rgb(255 255 255 / 0.04);
+}
+
+/* Safari ships this; Chromium and Firefox ignore the block. */
+@media (prefers-reduced-transparency: reduce) {
+  .liquid-glass {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background-color: var(--background);
+  }
+}

@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { ArrowUpRight, Monitor, Moon, Share2, Sun } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { LiquidGlassFilter } from '../features/common/components/liquid-glass'
 import {
   ScreenshotGallery,
   type ScreenshotSet,
@@ -472,7 +473,7 @@ function ThemeToggle() {
     <button
       type="button"
       onClick={cycleTheme}
-      className="border rounded-lg backdrop-blur-md size-12 flex items-center justify-center cursor-pointer hover:bg-accent hover:text-accent-foreground dark:hover:bg-white/5 transition-colors"
+      className="border border-white/40 dark:border-white/10 rounded-lg size-12 flex items-center justify-center cursor-pointer hover:bg-accent hover:text-accent-foreground dark:hover:bg-white/5 transition-colors"
       aria-label={tooltipText}
       title={tooltipText}
     >
@@ -546,13 +547,18 @@ function HeroShotStack() {
 }
 
 function HomePage() {
+  const glassRef = useRef<HTMLElement>(null)
+
   return (
     <>
       <div className="p-4 md:px-6 md:pt-6 pb-0 sticky top-0 z-10">
-        <header className="flex items-center gap-3 justify-between max-w-5xl mx-auto rounded-xl p-2 bg-white/30 dark:bg-white/5 backdrop-blur-xl shadow-[0_4px_24px_0_rgba(0,0,0,0.08)] ring-1 ring-inset ring-white/60 dark:ring-white/10">
+        <header
+          ref={glassRef}
+          className="liquid-glass flex items-center gap-3 justify-between max-w-5xl mx-auto rounded-xl p-2 bg-white/40 dark:bg-white/8 shadow-[0_4px_24px_0_rgba(0,0,0,0.08)]"
+        >
           <a
             href="/"
-            className="font-extrabold text-2xl bg-muted/30 rounded-lg backdrop-blur-md select-none size-12 flex items-center justify-center"
+            className="font-extrabold text-2xl bg-muted/30 rounded-lg select-none size-12 flex items-center justify-center"
           >
             IF
           </a>
@@ -566,7 +572,7 @@ function HomePage() {
                   url: window.location.origin,
                 })
               }
-              className="border rounded-lg backdrop-blur-md size-12 flex items-center justify-center cursor-pointer hover:bg-accent hover:text-accent-foreground dark:hover:bg-white/5 transition-colors"
+              className="border border-white/40 dark:border-white/10 rounded-lg size-12 flex items-center justify-center cursor-pointer hover:bg-accent hover:text-accent-foreground dark:hover:bg-white/5 transition-colors"
               aria-label="Share"
               title="Share"
             >
@@ -574,6 +580,7 @@ function HomePage() {
             </button>
           </div>
         </header>
+        <LiquidGlassFilter targetRef={glassRef} />
       </div>
 
       <main>

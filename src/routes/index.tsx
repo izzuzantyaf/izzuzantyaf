@@ -605,19 +605,6 @@ function HomePage() {
               without breaking the people who use them daily.
             </p>
 
-            <dl className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
-              {PROOF_POINTS.map((point) => (
-                <div key={point.label}>
-                  <dt className="text-3xl font-semibold tabular-nums">
-                    {point.figure}
-                  </dt>
-                  <dd className="text-sm text-muted-foreground leading-snug mt-1">
-                    {point.label}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-
             <div className="flex flex-wrap items-center gap-3 mt-10">
               <a
                 href="mailto:me@izzuzantyaf.com?subject=Hi%2C%20Let%27s%20Collaborate.&body=Hi%20Izzu%2C%20let%27s%20collaborate%20about..."
@@ -663,6 +650,24 @@ function HomePage() {
           </div>
 
           <HeroShotStack />
+        </section>
+
+        <section
+          aria-label="Proof points"
+          className="max-w-7xl mx-auto mt-20 sm:mt-24 px-6"
+        >
+          <dl className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
+            {PROOF_POINTS.map((point) => (
+              <div key={point.label}>
+                <dt className="text-5xl sm:text-6xl font-bold tabular-nums leading-none">
+                  {point.figure}
+                </dt>
+                <dd className="text-base text-muted-foreground leading-snug mt-3">
+                  {point.label}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </section>
 
         <ProfessionalExperiences />

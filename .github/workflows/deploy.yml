@@ -3,6 +3,17 @@ name: Deploy
 on:
   push:
     branches: [main]
+    # Docs, agent config and tooling changes do not affect the deployed Worker.
+    paths:
+      - "src/**"
+      - "public/**"
+      - "package.json"
+      - "bun.lock"
+      - "tsconfig.json"
+      - "tsr.config.json"
+      - "vite.config.ts"
+      - "wrangler.jsonc"
+      - ".github/workflows/deploy.yml"
   workflow_dispatch:
 
 concurrency:

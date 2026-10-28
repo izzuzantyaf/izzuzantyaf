@@ -527,7 +527,7 @@ function HeroShotStack() {
           </span>{' '}
           - {activeShot.caption}
         </p>
-        <div className="flex gap-1.5 shrink-0 pt-1.5">
+        <div className="flex shrink-0 -mr-1">
           {HERO_SHOTS.map((shot, index) => (
             <button
               key={shot.src}
@@ -535,10 +535,15 @@ function HeroShotStack() {
               onClick={() => setActiveIndex(index)}
               aria-label={`Show ${shot.label}`}
               aria-current={index === activeIndex}
-              className={`size-2 rounded-full cursor-pointer transition-colors ${
-                index === activeIndex ? 'bg-foreground' : 'bg-foreground/25'
-              }`}
-            />
+              className="size-6 grid place-items-center cursor-pointer"
+            >
+              {/* Dot stays 8px; the button is 24px so it meets the touch target minimum. */}
+              <span
+                className={`size-2 rounded-full transition-colors ${
+                  index === activeIndex ? 'bg-foreground' : 'bg-foreground/25'
+                }`}
+              />
+            </button>
           ))}
         </div>
       </figcaption>

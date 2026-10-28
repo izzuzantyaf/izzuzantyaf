@@ -85,7 +85,8 @@ export function ScreenshotGallery({ galleries }: ScreenshotGalleryProps) {
             >
               <Images size={14} />
               {gallery.title}
-              <span className="text-xs tabular-nums text-muted-foreground">
+              {/* Inherits the button color: muted-foreground on the open state's accent background is only 4.39:1. */}
+              <span className="text-xs tabular-nums">
                 {gallery.screenshots.length}
               </span>
             </button>

@@ -537,9 +537,9 @@ function HeroShotStack() {
               aria-current={index === activeIndex}
               className="size-6 grid place-items-center cursor-pointer"
             >
-              {/* Dot stays 8px; the button is 24px so it meets the touch target minimum. */}
+              {/* Button is 24px for the touch target minimum; the dot is 12px so the gaps stay tight. */}
               <span
-                className={`size-2 rounded-full transition-colors ${
+                className={`size-3 rounded-full transition-colors ${
                   index === activeIndex ? 'bg-foreground' : 'bg-foreground/25'
                 }`}
               />

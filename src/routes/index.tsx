@@ -130,7 +130,7 @@ const PROFESSIONAL_EXPERIENCES: Experience[] = [
           'Core Web Vitals',
         ],
         summary:
-          'Named Best Employee of the year 2025 and became person-in-charge of the Frontend and Marketing collaboration, turning repeated ad-hoc content requests into a self-service workflow. Improved and maintained https://synapsis.id to LCP under 2.5s and CLS under 0.1, added multi-language routing, and built the Strapi plugins the marketing team relies on: live preview before publish, a Tiptap rich text editor, and CSV/Excel export. Migrated the entire TOS codebase from SWR to TanStack Query and moved the website to a feature-oriented architecture, working with AI agents, repository rules and MCPs for 30% to 50% faster deliveries without trading away code quality.',
+          'Turned repeated ad-hoc content requests into a self-service workflow with the marketing team. Improved and maintained https://synapsis.id to LCP under 2.5s and CLS under 0.1, added multi-language routing, and built the Strapi plugins the marketing team relies on: live preview before publish, a Tiptap rich text editor, and CSV/Excel export. Migrated the entire TOS codebase from SWR to TanStack Query and moved the website to a feature-oriented architecture, working with AI agents, repository rules and MCPs for 30% to 50% faster deliveries without trading away code quality.',
         galleries: [
           {
             title: 'Synapsis Website',

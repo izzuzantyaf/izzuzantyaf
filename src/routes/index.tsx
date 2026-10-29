@@ -576,7 +576,7 @@ function HomePage() {
             bar are near-white UI, and a white wash turned the icons invisible. */}
         <header
           ref={glassRef}
-          className="liquid-glass flex items-center gap-3 justify-between max-w-5xl mx-auto rounded-xl p-2 bg-white/55 dark:bg-black/50 shadow-[0_4px_24px_0_rgba(0,0,0,0.08)]"
+          className="liquid-glass flex items-center gap-3 justify-between max-w-5xl mx-auto rounded-xl p-2 bg-white/40 dark:bg-black/35 shadow-[0_4px_24px_0_rgba(0,0,0,0.08)]"
         >
           <a
             href="/"

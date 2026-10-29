@@ -16,7 +16,7 @@ const DISPLACEMENT = 6
 /** Cap on the generated map size, keeps toDataURL and the pixel loop cheap. */
 const MAX_MAP_SIDE = 1200
 
-const BACKDROP_BLUR = 'blur(4px) saturate(180%) brightness(1.03)'
+const BACKDROP_BLUR = 'blur(2px) saturate(180%) brightness(1.03)'
 
 /** 1x1 neutral grey, so the filter always resolves before the real map is ready. */
 const NEUTRAL_MAP = `data:image/svg+xml,${encodeURIComponent(

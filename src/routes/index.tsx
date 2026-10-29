@@ -7,6 +7,7 @@ import {
   type ScreenshotSet,
 } from '../features/common/components/screenshot-gallery'
 import { useTheme } from '../features/common/theme'
+import { imageVariant } from '../features/common/toolkits'
 
 const HERO_SHOTS = [
   {
@@ -375,7 +376,9 @@ function ProfessionalExperiences() {
               </p>
               <div className="flex items-center gap-3">
                 <img
-                  src={exp.logo}
+                  src={imageVariant(exp.logo, 96)}
+                  srcSet={`${imageVariant(exp.logo, 96)} 96w, ${exp.logo} 512w`}
+                  sizes="48px"
                   alt=""
                   width={48}
                   height={48}
@@ -524,11 +527,14 @@ function HeroShotStack() {
         {HERO_SHOTS.map((shot, index) => (
           <img
             key={shot.src}
-            src={shot.src}
+            src={imageVariant(shot.src, 640)}
+            srcSet={`${imageVariant(shot.src, 640)} 640w, ${imageVariant(shot.src, 1280)} 1280w, ${shot.src} 1600w`}
+            sizes="(min-width: 1280px) 540px, (min-width: 1024px) 420px, calc(100vw - 48px)"
             alt={index === activeIndex ? shot.alt : ''}
             width={1600}
             height={960}
             loading={index === 0 ? 'eager' : 'lazy'}
+            fetchPriority={index === 0 ? 'high' : 'auto'}
             className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 ${
               index === activeIndex ? 'opacity-100' : 'opacity-0'
             }`}

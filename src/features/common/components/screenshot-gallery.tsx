@@ -1,5 +1,6 @@
 import { ChevronLeft, ChevronRight, Images } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { imageVariant } from '../toolkits'
 
 export interface Screenshot {
   src: string
@@ -110,7 +111,9 @@ export function ScreenshotGallery({ galleries }: ScreenshotGalleryProps) {
                   className="relative block w-full overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800 hover:border-primary/50 transition-colors cursor-zoom-in"
                 >
                   <img
-                    src={screenshot.src}
+                    src={imageVariant(screenshot.src, 640)}
+                    srcSet={`${imageVariant(screenshot.src, 640)} 640w, ${imageVariant(screenshot.src, 1280)} 1280w`}
+                    sizes="288px"
                     alt=""
                     loading="lazy"
                     decoding="async"
@@ -138,6 +141,8 @@ export function ScreenshotGallery({ galleries }: ScreenshotGalleryProps) {
           />
           <img
             src={activeScreenshot.src}
+            srcSet={`${imageVariant(activeScreenshot.src, 640)} 640w, ${imageVariant(activeScreenshot.src, 1280)} 1280w, ${activeScreenshot.src} 1600w`}
+            sizes="(min-width: 1024px) 1280px, 100vw"
             alt={activeScreenshot.caption}
             className="relative max-h-[80vh] max-w-full w-auto h-auto rounded-lg shadow-2xl"
           />

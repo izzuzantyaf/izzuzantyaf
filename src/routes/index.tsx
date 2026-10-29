@@ -81,6 +81,7 @@ interface ExperienceRole {
 
 interface Experience {
   company: string
+  logo: string
   type: string
   duration: string
   location: string
@@ -91,6 +92,7 @@ interface Experience {
 const PROFESSIONAL_EXPERIENCES: Experience[] = [
   {
     company: 'GovTech Procurement by Telkom Indonesia',
+    logo: '/images/companies/govtech-procurement.webp',
     type: 'Full-time',
     duration: '2 mos',
     location: 'Jakarta, Indonesia',
@@ -114,6 +116,7 @@ const PROFESSIONAL_EXPERIENCES: Experience[] = [
   },
   {
     company: 'Synapsis',
+    logo: '/images/companies/synapsis.webp',
     type: 'Full-time',
     duration: '2 yrs 6 mos',
     location: 'Yogyakarta, Indonesia',
@@ -314,6 +317,7 @@ const PROFESSIONAL_EXPERIENCES: Experience[] = [
   },
   {
     company: 'Widya Wicara',
+    logo: '/images/companies/widya-wicara.webp',
     type: 'Full-time',
     duration: '1 yr 1 mo',
     location: 'Yogyakarta, Indonesia',
@@ -369,22 +373,33 @@ function ProfessionalExperiences() {
               <p className="text-sm text-muted-foreground tabular-nums">
                 {exp.duration}
               </p>
-              <div>
-                <a
-                  href={exp.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group text-xl font-semibold hover:text-primary hover:underline transition-colors inline-flex items-center gap-1"
-                >
-                  {exp.company}
-                  <ArrowUpRight
-                    size={16}
-                    className="text-muted-foreground/60 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200"
-                  />
-                </a>
-                <p className="text-sm text-muted-foreground mt-0.5">
-                  {exp.type} · {exp.location}
-                </p>
+              <div className="flex items-center gap-3">
+                <img
+                  src={exp.logo}
+                  alt=""
+                  width={48}
+                  height={48}
+                  loading="lazy"
+                  decoding="async"
+                  className="size-12 shrink-0 object-contain"
+                />
+                <div>
+                  <a
+                    href={exp.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group text-xl font-semibold hover:text-primary hover:underline transition-colors"
+                  >
+                    {exp.company}
+                    <ArrowUpRight
+                      size={16}
+                      className="inline-block align-baseline ml-1 text-muted-foreground/60 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200"
+                    />
+                  </a>
+                  <p className="text-sm text-muted-foreground mt-0.5">
+                    {exp.type} · {exp.location}
+                  </p>
+                </div>
               </div>
             </div>
 

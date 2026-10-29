@@ -112,6 +112,30 @@ const PROFESSIONAL_EXPERIENCES: Experience[] = [
         ],
         summary:
           'Works on INAPROC (https://katalog.inaproc.id), LKPP\'s national e-procurement platform, inside a Turborepo monorepo of 13 Next.js apps and 11 shared packages on a federated GraphQL layer with schema-driven codegen, and shipped PPK punishment validation at checkout, mandatory curation revision with its change history, and the "Pencarian Pintar" AI search, where queries are matched by embedding similarity and results are ranked against the buyer\'s own region. Bootstrapped unit testing for the buyer checkout scope with Vitest and Testing Library (~450 cases across 80 files) plus a Playwright happy-flow recorder, and keeps codegen, typecheck and lint clean one PR per ticket.',
+        galleries: [
+          {
+            title: 'INAPROC Katalog Elektronik',
+            description:
+              'National e-procurement catalogue (https://katalog.inaproc.id) where buyers search certified products and sellers submit curation changes.',
+            screenshots: [
+              {
+                src: '/images/experience/inaproc/inaproc-pencarian-pintar.webp',
+                caption:
+                  'Buyer catalogue home with the "Pencarian Pintar" AI search toggle',
+              },
+              {
+                src: '/images/experience/inaproc/inaproc-smart-search-results.webp',
+                caption:
+                  "Results matched by embedding similarity, with recommendations ranked against the buyer's own region",
+              },
+              {
+                src: '/images/experience/inaproc/inaproc-curation-history.webp',
+                caption:
+                  'Curation change history in the admin portal, with old and new values per event',
+              },
+            ],
+          },
+        ],
       },
     ],
   },

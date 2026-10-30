@@ -11,6 +11,13 @@ import { imageVariant } from '../features/common/toolkits'
 
 const HERO_SHOTS = [
   {
+    src: '/images/experience/inaproc/inaproc-pencarian-pintar.webp',
+    alt: 'INAPROC Katalog Elektronik buyer home with the Pencarian Pintar AI search toggle',
+    label: 'INAPROC Katalog Elektronik',
+    caption:
+      'National procurement catalogue - buyers search certified products, with "Pencarian Pintar" AI search and region-ranked results.',
+  },
+  {
     src: '/images/experience/website/synapsis-home-hero-iot.webp',
     alt: 'Synapsis website home hero promoting integrated IoT and AI',
     label: 'Synapsis Website',
